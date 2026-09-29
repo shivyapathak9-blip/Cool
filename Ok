@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shivya's Cool Website :D</title>
+</head>
+
+<body>
+
+    <h1>Hello! 👋</h1>
+
+    <p>
+        Hello! my name is Shivya! i am a 9 year old girl who knows a
+        teensy tinsy bit of python and i wanted to make a cool website!!
+        please enter your name to continue!
+    </p>
+
+    <input id="name" placeholder="put it here!">
+    <button onclick="enterName()">Continue</button>
+
+
+    <div id="ageSection" style="display:none;">
+
+        <p id="helloMessage"></p>
+
+        <p>
+            Hello! lets continue! please enter your age below.
+            (u dont need to enter your REAL age)
+        </p>
+
+        <input id="age" placeholder="enter it here please!">
+        <button onclick="enterAge()">Continue</button>
+
+    </div>
+
+
+    <div id="passwordSection" style="display:none;">
+
+        <p>
+            Alright! from what youve entered, you are
+            <span id="shownAge"></span> years old and your name is
+            <span id="shownName"></span> right?
+            great! lets set your password.
+        </p>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="please enter your password!"
+        >
+
+        <br><br>
+
+        <input
+            id="passwordAgain"
+            type="password"
+            placeholder="enter your password again here"
+        >
+
+        <br><br>
+
+        <button onclick="checkPassword()">Continue</button>
+
+        <p id="passwordResult"></p>
+
+    </div>
+
+
+    <div id="questionSection" style="display:none;">
+
+        <p>
+            great job! oh and btw ur password or info isnt gonna
+            get shared :)
+        </p>
+
+        <p>heres a question, its just for a test</p>
+
+        <input id="answer" placeholder="whats 2 + 2?">
+
+        <button onclick="checkAnswer()">Submit</button>
+
+        <p id="answerResult"></p>
+
+    </div>
+
+
+    <div id="favoritesSection" style="display:none;">
+
+        <p>here are mah favorite things!!</p>
+
+        <ul>
+            <li>coding (ofc)</li>
+            <li>reading</li>
+            <li>writing</li>
+            <li>drawing</li>
+        </ul>
+
+        <p id="specialMessage"></p>
+
+        <p>30</p>
+
+        <p>test :D</p>
+
+        <button onclick="runLoop()">Run the loop!</button>
+
+        <p id="loopResult"></p>
+
+    </div>
+
+
+<script>
+
+let name;
+let age;
+
+
+// NAME
+
+function enterName() {
+
+    name = document.getElementById("name").value;
+
+    document.getElementById("helloMessage").textContent =
+        "Hello " + name + "! lets continue!";
+
+    document.getElementById("ageSection").style.display = "block";
+}
+
+
+// AGE
+
+function enterAge() {
+
+    age = document.getElementById("age").value;
+
+    document.getElementById("shownAge").textContent = age;
+
+    document.getElementById("shownName").textContent = name;
+
+    document.getElementById("passwordSection").style.display =
+        "block";
+}
+
+
+// PASSWORD
+
+function checkPassword() {
+
+    let password =
+        document.getElementById("password").value;
+
+    let passwordAgain =
+        document.getElementById("passwordAgain").value;
+
+
+    if (passwordAgain === password) {
+
+        document.getElementById("passwordResult").textContent =
+            "correct :D";
+
+        document.getElementById("questionSection").style.display =
+            "block";
+
+    } else {
+
+        document.getElementById("passwordResult").textContent =
+            "wrong! type it properly!";
+    }
+}
+
+
+// AHAAN CHECK
+
+function checkName() {
+
+    if (
+        name === "Ahaan" ||
+        name === "ahaan" ||
+        name === "Ahaan mishra" ||
+        name === "ahaan mishra" ||
+        name === "Ahaan Mishra"
+    ) {
+
+        return "oh hi ahaan :D";
+
+    }
+
+    return "";
+}
+
+
+// 2 + 2 QUESTION
+
+function checkAnswer() {
+
+    let answer =
+        document.getElementById("answer").value;
+
+
+    if (
+        answer === "4" ||
+        answer === "four" ||
+        answer === "Four"
+    ) {
+
+        document.getElementById("answerResult").textContent =
+            "Correct!";
+
+
+        let message = checkName();
+
+        document.getElementById("specialMessage").textContent =
+            message;
+
+
+        document.getElementById("favoritesSection").style.display =
+            "block";
+
+    } else {
+
+        document.getElementById("answerResult").textContent =
+            "wrong.";
+    }
+}
+
+
+// LOOP
+
+function runLoop() {
+
+    let result = "";
+
+
+    for (let abc = 0; abc < 6; abc++) {
+
+        result += "test :D<br>";
+
+    }
+
+
+    document.getElementById("loopResult").innerHTML =
+        result;
+}
+
+</script>
+
+</body>
+</html>
